@@ -10,4 +10,39 @@ img {
 .column-half {
   display: flex;
   flex-direction: column;
+  flex-basis: 50%;
+}
+
+body {
+  background-color: #eee;
+}
+
+button {
+  color: white;
+  background-color: #4c2474;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.3rem;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+textarea {
+  padding: 3rem 5.2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 2px solid #d4d4d4;
+}
+
+p {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+input {
+  padding: 0.5rem 6.1rem;
+  width: 100%;
+  border: 2px solid #d4d4d4;
 }
