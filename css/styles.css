@@ -5,14 +5,11 @@ header {
 
 img {
   width: 100%;
+  border-radius: 0.5rem;
 }
 
 .image-wrapper {
   flex-basis: 50%;
-}
-
-h1 {
-  margin-left: 0.6rem;
 }
 
 body {
@@ -33,13 +30,12 @@ button {
 }
 
 textarea {
-  margin-top: 0.6rem;
+  margin-top: 0.9rem;
   margin-bottom: 1rem;
   width: 100%;
   border: 2px solid #d4d4d4;
   border-radius: 0.3rem;
   height: 8rem;
-  margin-left: 0.8rem;
 }
 
 input {
@@ -50,7 +46,6 @@ input {
   margin: 0.6rem 0;
 }
 
-.notes {
-  margin-left: 0.8rem;
-  margin-top: 2rem;
+label {
+  margin-top: 1rem;
 }
