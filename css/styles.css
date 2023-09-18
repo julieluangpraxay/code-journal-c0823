@@ -1,0 +1,13 @@
+header {
+  background-color: #4c2474;
+  color: white;
+}
+
+img {
+  width: 100%;
+}
+
+.column-half {
+  display: flex;
+  flex-direction: column;
+}

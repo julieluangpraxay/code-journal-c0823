@@ -15,12 +15,28 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
     <header>
-      <div class="container"></div>
+      <div class="container">
+        <div class="row">
+          <h1>Code Journal</h1>
+        </div>
+      </div>
     </header>
     <main class="container">
-      <div data-view="entry-form"></div>
+      <div data-view="entry-form">
+        <div class="columm-half">
+          <h1>New Entry</h1>
+          <img src="./images/placeholder-image-square.jpg" />
+        </div>
+        <div class="columm-half">
+          <p>Title</p>
+          <input type="text" name="title" id="title" />
+          <p>Photo URL</p>
+          <input type="text" name="text" id="photoUrl" />
+        </div>
+      </div>
       <div data-view="entries" class="hidden"></div>
     </main>
     <script src="js/data.js"></script>
