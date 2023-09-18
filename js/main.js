@@ -11,13 +11,13 @@ $form.addEventListener('submit', function (event) {
 
   const title = $form.elements.title.value;
   const photoUrl = $form.elements.photoUrl.value;
-  const entryBox = $form.elements.entryBox.value;
+  const notes = $form.elements.notes.value;
 
   const inputValues = {
     entryId: data.nextEntryId,
     title,
     photoUrl,
-    entryBox,
+    notes,
   };
 
   data.nextEntryId++;

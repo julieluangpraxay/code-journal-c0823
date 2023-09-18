@@ -25,8 +25,8 @@
       </div>
     </header>
     <main class="container">
-      <form action="submit" id="entry-form" method="post">
-        <div data-view="entry-form">
+      <div data-view="entry-form">
+        <form action="submit" id="entry-form" method="post">
           <div class="column-full">
             <h1>New Entry</h1>
           </div>
@@ -43,17 +43,18 @@
               <input type="text" name="text" id="photoUrl" required />
             </div>
           </div>
-          <div class="column-full">
-            <div class="row">
+          <div class="row">
+            <div class="column-full">
               <label class="notes" for="notes">Notes</label>
-            </div>
-            <textarea name="entryBox" id="entryBox" required></textarea>
-            <div class="button-row">
-              <button>SAVE</button>
+              <textarea name="notes" id="notes" required></textarea>
+              <div class="button-row">
+                <button>SAVE</button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
+
       <div data-view="entries" class="hidden"></div>
     </main>
     <script src="js/data.js"></script>
