@@ -33,24 +33,24 @@ button {
 }
 
 textarea {
+  margin-top: 0.6rem;
   margin-bottom: 1rem;
   width: 100%;
   border: 2px solid #d4d4d4;
-  margin-left: 0.6rem;
   border-radius: 0.3rem;
   height: 8rem;
-}
-
-p {
-  font-weight: 500;
-  font-size: 1rem;
-  margin-left: 0.6rem;
+  margin-left: 0.8rem;
 }
 
 input {
   width: 100%;
   border: 2px solid #d4d4d4;
-  margin-left: 0.6rem;
   border-radius: 0.3rem;
   height: 2.5rem;
+  margin: 0.6rem 0;
+}
+
+.notes {
+  margin-left: 0.8rem;
+  margin-top: 2rem;
 }
