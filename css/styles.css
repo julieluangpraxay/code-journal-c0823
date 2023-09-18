@@ -33,12 +33,12 @@ button {
 }
 
 textarea {
-  padding: 3rem 5.5rem;
   margin-bottom: 1rem;
   width: 100%;
   border: 2px solid #d4d4d4;
   margin-left: 0.6rem;
   border-radius: 0.3rem;
+  height: 8rem;
 }
 
 p {
@@ -48,9 +48,9 @@ p {
 }
 
 input {
-  padding: 0.5rem 6.1rem;
   width: 100%;
   border: 2px solid #d4d4d4;
   margin-left: 0.6rem;
   border-radius: 0.3rem;
+  height: 2.5rem;
 }
