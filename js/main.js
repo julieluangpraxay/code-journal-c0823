@@ -64,3 +64,10 @@ window.addEventListener('DOMContentLoaded', function (event) {
     $ul.appendChild(renderEntry(data.entries[i]));
   }
 });
+
+const $noEntries = document.querySelector('.no-entries-text');
+function toggleNoEntries() {
+  $noEntries.classList.toggle('hidden');
+}
+
+toggleNoEntries();
