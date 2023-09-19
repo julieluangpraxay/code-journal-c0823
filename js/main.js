@@ -34,18 +34,23 @@ function renderEntry(entry) {
 
   const $row = document.createElement('div');
   $row.setAttribute('class', 'row');
-
-  const $image = document.createElement('img');
-  $image.setAttribute('src', entry.photoUrl);
-  $row.appendChild($image);
+  $li.appendChild($row);
 
   const $columnHalf = document.createElement('div');
   $columnHalf.setAttribute('class', 'column-half');
+  $row.appendChild($columnHalf);
+
+  const $image = document.createElement('img');
+  $image.setAttribute('src', entry.photoUrl);
+  $columnHalf.appendChild($image);
 
   const $title = document.createElement('h2');
   $title.textContent = entry.title;
+  $columnHalf.appendChild($title);
 
   const $notes = document.createElement('p');
   $notes.textContent = entry.notes;
+  $title.appendChild($notes);
 }
+
 renderEntry();
