@@ -17,7 +17,7 @@ body {
   background-color: #eee;
 }
 
-button {
+.save-button {
   color: white;
   background-color: #4c2474;
   padding: 0.6rem 0.8rem;
@@ -67,4 +67,23 @@ a {
   margin-left: 1.5rem;
   font-weight: 400;
   font-size: 1.3rem;
+}
+
+.no-entries-text {
+  display: flex;
+  justify-content: center;
+}
+
+.new-button {
+  color: white;
+  background-color: #4c2474;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.3rem;
+}
+
+.entries-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
