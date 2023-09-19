@@ -42,13 +42,17 @@ function renderEntry(entry) {
   $image.setAttribute('src', entry.photoUrl);
   $columnHalf.appendChild($image);
 
+  const $columnHalf2 = document.createElement('div');
+  $columnHalf2.setAttribute('class', 'column-half2');
+  $row.appendChild($columnHalf2);
+
   const $title = document.createElement('h2');
   $title.textContent = entry.title;
-  $columnHalf.appendChild($title);
+  $columnHalf2.appendChild($title);
 
   const $notes = document.createElement('p');
   $notes.textContent = entry.notes;
-  $title.appendChild($notes);
+  $columnHalf2.appendChild($notes);
 
   return $li;
 }

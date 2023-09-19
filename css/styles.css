@@ -50,3 +50,13 @@ input {
 label {
   margin-top: 1rem;
 }
+
+.column-half2 {
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+}
+
+ul {
+  list-style: none;
+}
