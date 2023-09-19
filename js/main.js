@@ -28,9 +28,7 @@ $form.addEventListener('submit', function (event) {
 });
 
 function renderEntry(entry) {
-  const $ul = document.createElement('ul');
   const $li = document.createElement('li');
-  $ul.appendChild($li);
 
   const $row = document.createElement('div');
   $row.setAttribute('class', 'row');
@@ -51,6 +49,14 @@ function renderEntry(entry) {
   const $notes = document.createElement('p');
   $notes.textContent = entry.notes;
   $title.appendChild($notes);
+
+  return $li;
 }
 
-renderEntry();
+const $ul = document.querySelector('ul');
+
+window.addEventListener('DOMContentLoaded', function (event) {
+  for (let i = 0; i < data.entries.length; i++) {
+    $ul.appendChild(renderEntry(data.entries[i]));
+  }
+});
