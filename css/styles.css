@@ -5,7 +5,8 @@ header {
 
 img {
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
 }
 
 .image-wrapper {
