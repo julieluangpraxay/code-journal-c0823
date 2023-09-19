@@ -60,3 +60,11 @@ label {
 ul {
   list-style: none;
 }
+
+a {
+  font-family: sans-serif;
+  margin-top: 1.9rem;
+  margin-left: 1.5rem;
+  font-weight: 400;
+  font-size: 1.3rem;
+}

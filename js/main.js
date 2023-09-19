@@ -65,19 +65,26 @@ window.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
-const $noEntries = document.querySelector('.no-entries-text');
+// const $noEntries = document.querySelector('.no-entries-text');
+const $entryForm = document.querySelector('.entry-form');
 
 function toggleNoEntries() {
-  $noEntries.classList.toggle('hidden');
+  // $noEntries.classList.toggle('hidden');
+  $entryForm.classList.toggle('hidden');
 }
 
-// function viewSwap(entries) {
-//   data.view = 'entries';
+const $entriesPage = document.querySelector('.hidden');
 
-// }
+function viewSwap(entries) {
+  data.view = 'entries';
+
+  toggleNoEntries();
+}
+
 const $aElement = document.querySelector('a');
 
-$aElement.addEventListener('click', function viewSwap(entries) {
+$aElement.addEventListener('click', function (event) {
   data.view = 'entries';
-  toggleNoEntries();
+  viewSwap();
+  $entriesPage.classList.remove('hidden');
 });
