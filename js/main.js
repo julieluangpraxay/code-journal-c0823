@@ -66,8 +66,18 @@ window.addEventListener('DOMContentLoaded', function (event) {
 });
 
 const $noEntries = document.querySelector('.no-entries-text');
+
 function toggleNoEntries() {
   $noEntries.classList.toggle('hidden');
 }
 
-toggleNoEntries();
+// function viewSwap(entries) {
+//   data.view = 'entries';
+
+// }
+const $aElement = document.querySelector('a');
+
+$aElement.addEventListener('click', function viewSwap(entries) {
+  data.view = 'entries';
+  toggleNoEntries();
+});
