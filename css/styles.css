@@ -3,10 +3,18 @@ header {
   color: white;
 }
 
+h1 {
+  font-family: 'Proza Libre', sans-serif;
+}
+
 img {
   width: 100%;
   border-radius: 0.4rem;
   margin-bottom: 1rem;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .image-wrapper {
@@ -22,6 +30,7 @@ body {
   background-color: #4c2474;
   padding: 0.6rem 0.8rem;
   border-radius: 0.3rem;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .button-row {
@@ -49,6 +58,7 @@ input {
 
 label {
   margin-top: 1rem;
+  font-family: 'Proza Libre', sans-serif;
 }
 
 .column-half2 {
@@ -62,11 +72,11 @@ ul {
 }
 
 a {
-  font-family: sans-serif;
   margin-top: 1.9rem;
   margin-left: 1.5rem;
   font-weight: 400;
   font-size: 1.3rem;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .no-entries-text {
@@ -79,6 +89,7 @@ a {
   background-color: #4c2474;
   padding: 0.6rem 0.8rem;
   border-radius: 0.3rem;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .entries-head {
@@ -86,4 +97,9 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-left: 2.9rem;
+}
+
+.code-journal-header {
+  margin-left: 0.6rem;
 }
