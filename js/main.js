@@ -27,8 +27,6 @@ $form.addEventListener('submit', function (event) {
   $form.reset();
 
   $ul.prepend(renderEntry(inputValues));
-
-  renderEntry(data.nextEntryId);
   viewSwap('entries');
 });
 
@@ -45,6 +43,7 @@ function renderEntry(entry) {
 
   const $image = document.createElement('img');
   $image.setAttribute('src', entry.photoUrl);
+  $image.setAttribute('alt', 'entry photo');
   $columnHalf.appendChild($image);
 
   const $columnHalf2 = document.createElement('div');
