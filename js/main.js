@@ -19,6 +19,15 @@ $form.addEventListener('submit', function (event) {
     notes,
   };
 
+  if (data.editing === null) {
+    data.nextEntryId++;
+    data.entries.unshift(entry);
+    $image.setAttribute('src', './images/placeholder-image-square.jpg');
+    $form.reset();
+    $ul.prepend(renderEntry(entry));
+    viewSwap('entries');
+  }
+
   data.nextEntryId++;
   data.entries.unshift(entry);
   $image.setAttribute('src', './images/placeholder-image-square.jpg');
