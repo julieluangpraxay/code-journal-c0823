@@ -26,9 +26,9 @@ $form.addEventListener('submit', function (event) {
   $image.setAttribute('src', './images/placeholder-image-square.jpg');
   $form.reset();
 
-  // for (let i = 0; i < data.entries.length; i++) {
-  //   $ul.prepend(renderEntry(data.entries[i]));
-  // }
+  $ul.prepend(renderEntry(inputValues));
+
+  renderEntry(data.nextEntryId);
   viewSwap('entries');
 });
 
@@ -68,6 +68,9 @@ window.addEventListener('DOMContentLoaded', function (event) {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
   }
+
+  toggleNoEntries();
+  viewSwap();
 });
 
 const $entryForm = document.querySelector('.entry-form');
