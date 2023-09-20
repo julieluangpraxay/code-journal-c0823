@@ -52,7 +52,15 @@ function renderEntry(entry) {
 
   const $title = document.createElement('h2');
   $title.textContent = entry.title;
-  $columnHalf2.appendChild($title);
+
+  const $titleWrapper = document.createElement('div');
+  $titleWrapper.setAttribute('class', 'title-wrapper');
+  $columnHalf2.appendChild($titleWrapper);
+  $titleWrapper.appendChild($title);
+
+  const $pencilIcon = document.createElement('i');
+  $pencilIcon.setAttribute('class', 'fa-solid fa-pen fa-lg');
+  $titleWrapper.appendChild($pencilIcon);
 
   const $notes = document.createElement('p');
   $notes.textContent = entry.notes;

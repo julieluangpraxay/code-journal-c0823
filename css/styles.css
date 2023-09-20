@@ -116,3 +116,9 @@ a {
 .code-journal-header {
   margin-left: 0.4rem;
 }
+
+.title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
