@@ -1,6 +1,7 @@
 const $imageInput = document.querySelector('#photoUrl');
 const $image = document.querySelector('img');
 const $form = document.querySelector('form');
+
 $imageInput.addEventListener('input', function (event) {
   $image.setAttribute('src', event.target.value);
 });
@@ -114,6 +115,9 @@ $newButton.addEventListener('click', function (event) {
   viewSwap('entry-form');
 });
 
+const $inputTitle = document.querySelector('#title');
+const $textArea = document.querySelector('#notes');
+
 $ul.addEventListener('click', function (event) {
   if (event.target.tagName === 'I') {
     const closestLi = event.target.closest('li').getAttribute('data-entry-id');
@@ -122,8 +126,15 @@ $ul.addEventListener('click', function (event) {
     $newH1.textContent = 'Edit Entry';
 
     for (let i = 0; i < data.entries.length; i++) {
-      if (data.entries[i].entryId === closestLi) {
-        data.editing = data.entries[i].entryId;
+      if (data.entries[i].entryId === Number(closestLi)) {
+        data.editing = data.entries[i];
+
+        $inputTitle.value = data.entries[i].title;
+        $textArea.value = data.entries[i].notes;
+        $imageInput.value = data.entries[i].photoUrl;
+
+        $image.setAttribute('src', data.entries[i].photoUrl);
+        $image.setAttribute('alt', 'entry photo');
       }
     }
   }
