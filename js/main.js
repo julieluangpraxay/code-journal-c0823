@@ -68,9 +68,8 @@ window.addEventListener('DOMContentLoaded', function (event) {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
   }
-
+  viewSwap(data.view);
   toggleNoEntries();
-  viewSwap();
 });
 
 const $entryForm = document.querySelector('.entry-form');
@@ -84,7 +83,7 @@ function toggleNoEntries() {
   }
 }
 
-const $entriesPage = document.querySelector('.hidden');
+const $entriesPage = document.querySelector('.entries');
 
 function viewSwap(viewName) {
   if (viewName === 'entry-form') {
