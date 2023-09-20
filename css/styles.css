@@ -73,7 +73,6 @@ label {
   display: flex;
   flex-basis: 50%;
   flex-direction: column;
-  padding-left: 1rem;
 }
 
 ul {
@@ -121,4 +120,5 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }

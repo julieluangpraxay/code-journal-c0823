@@ -1,19 +1,17 @@
 const $imageInput = document.querySelector('#photoUrl');
 const $image = document.querySelector('img');
 const $form = document.querySelector('form');
-
 $imageInput.addEventListener('input', function (event) {
   $image.setAttribute('src', event.target.value);
 });
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
-
   const title = $form.elements.title.value;
   const photoUrl = $form.elements.photoUrl.value;
   const notes = $form.elements.notes.value;
 
-  const inputValues = {
+  const entry = {
     entryId: data.nextEntryId,
     title,
     photoUrl,
@@ -21,20 +19,18 @@ $form.addEventListener('submit', function (event) {
   };
 
   data.nextEntryId++;
-  data.entries.unshift(inputValues);
-
+  data.entries.unshift(entry);
   $image.setAttribute('src', './images/placeholder-image-square.jpg');
   $form.reset();
-
-  $ul.prepend(renderEntry(inputValues));
+  $ul.prepend(renderEntry(entry));
   viewSwap('entries');
 });
 
 function renderEntry(entry) {
   const $li = document.createElement('li');
-  $li.setAttribute('id', entry);
-
+  $li.setAttribute('data-entry-id', entry.entryId);
   const $row = document.createElement('div');
+
   $row.setAttribute('class', 'row');
   $li.appendChild($row);
 
@@ -45,10 +41,10 @@ function renderEntry(entry) {
   const $image = document.createElement('img');
   $image.setAttribute('src', entry.photoUrl);
   $image.setAttribute('alt', 'entry photo');
-  $columnHalf.appendChild($image);
 
+  $columnHalf.appendChild($image);
   const $columnHalf2 = document.createElement('div');
-  $columnHalf2.setAttribute('class', 'column-half2');
+  $columnHalf2.setAttribute('class', 'column-half');
   $row.appendChild($columnHalf2);
 
   const $title = document.createElement('h2');
@@ -67,15 +63,10 @@ function renderEntry(entry) {
   $notes.textContent = entry.notes;
   $columnHalf2.appendChild($notes);
 
-  $pencilIcon.addEventListener('click', function (event) {
-    viewSwap('entry-form');
-  });
-
   return $li;
 }
 
 const $ul = document.querySelector('ul');
-
 window.addEventListener('DOMContentLoaded', function (event) {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
@@ -86,7 +77,6 @@ window.addEventListener('DOMContentLoaded', function (event) {
 
 const $entryForm = document.querySelector('.entry-form');
 const $noEntriesText = document.querySelector('.no-entries-text');
-
 function toggleNoEntries() {
   if (data.entries.length > 0) {
     $noEntriesText.classList.add('hidden');
@@ -119,5 +109,22 @@ $aElement.addEventListener('click', function (event) {
 const $newButton = document.querySelector('.new-button');
 
 $newButton.addEventListener('click', function (event) {
+  const $newH1 = document.querySelector('.new-h1');
+  $newH1.textContent = 'New Entry';
   viewSwap('entry-form');
+});
+
+$ul.addEventListener('click', function (event) {
+  if (event.target.tagName === 'I') {
+    const closestLi = event.target.closest('li').getAttribute('data-entry-id');
+    viewSwap('entry-form');
+    const $newH1 = document.querySelector('.new-h1');
+    $newH1.textContent = 'Edit Entry';
+
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === closestLi) {
+        data.editing = data.entries[i].entryId;
+      }
+    }
+  }
 });
