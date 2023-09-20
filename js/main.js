@@ -32,6 +32,7 @@ $form.addEventListener('submit', function (event) {
 
 function renderEntry(entry) {
   const $li = document.createElement('li');
+  $li.setAttribute('id', entry);
 
   const $row = document.createElement('div');
   $row.setAttribute('class', 'row');
@@ -65,6 +66,10 @@ function renderEntry(entry) {
   const $notes = document.createElement('p');
   $notes.textContent = entry.notes;
   $columnHalf2.appendChild($notes);
+
+  $pencilIcon.addEventListener('click', function (event) {
+    viewSwap('entry-form');
+  });
 
   return $li;
 }
