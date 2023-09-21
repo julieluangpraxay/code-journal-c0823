@@ -157,3 +157,19 @@ $ul.addEventListener('click', function (event) {
     }
   }
 });
+
+const $popup = document.querySelector('.popup-container');
+const $grayBackground = document.querySelector('.gray-background');
+
+$delete.addEventListener('click', function (event) {
+  event.preventDefault();
+  $popup.classList.remove('hidden');
+  $grayBackground.classList.remove('hidden');
+});
+
+const $cancelButton = document.querySelector('.cancel-button');
+
+$cancelButton.addEventListener('click', function () {
+  $popup.classList.add('hidden');
+  $grayBackground.classList.add('hidden');
+});
