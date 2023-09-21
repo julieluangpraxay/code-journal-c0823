@@ -124,7 +124,6 @@ $entriesButton.addEventListener('click', function (event) {
 const $newButton = document.querySelector('.new-button');
 
 $newButton.addEventListener('click', function (event) {
-  const $newH1 = document.querySelector('.new-h1');
   $newH1.textContent = 'New Entry';
   viewSwap('entry-form');
   $image.src = './images/placeholder-image-square.jpg';
