@@ -22,18 +22,31 @@ $form.addEventListener('submit', function (event) {
   if (data.editing === null) {
     data.nextEntryId++;
     data.entries.unshift(entry);
-    $image.setAttribute('src', './images/placeholder-image-square.jpg');
-    $form.reset();
     $ul.prepend(renderEntry(entry));
-    viewSwap('entries');
+
+    $image.setAttribute('src', './images/placeholder-image-square.jpg');
+  } else {
+    entry.entryId = data.editing.entryId;
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === entry.entryId) data.entries[i] = entry;
+    }
   }
 
-  data.nextEntryId++;
-  data.entries.unshift(entry);
-  $image.setAttribute('src', './images/placeholder-image-square.jpg');
-  $form.reset();
-  $ul.prepend(renderEntry(entry));
+  const $li = document.querySelector('li');
+  for (let i = 0; i < $li.length; i++) {
+    if (entry.entryId === Number($li[i].getAttribute('data-entry-id'))) {
+      $image.src = './images/placeholder-image-square.jpg';
+      $li[i].replaceWith(renderEntry(entry));
+    }
+  }
+  const $title = document.createElement('h2');
+
+  $title.textContent = 'New Entry';
+  data.editing = null;
+
   viewSwap('entries');
+  toggleNoEntries();
+  $form.reset();
 });
 
 function renderEntry(entry) {
@@ -110,9 +123,9 @@ function viewSwap(viewName) {
   toggleNoEntries();
 }
 
-const $aElement = document.querySelector('a');
+const $entriesButton = document.querySelector('a');
 
-$aElement.addEventListener('click', function (event) {
+$entriesButton.addEventListener('click', function (event) {
   viewSwap('entries');
 });
 
