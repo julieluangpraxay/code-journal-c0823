@@ -28,11 +28,14 @@ $form.addEventListener('submit', function (event) {
     entry.entryId = data.editing.entryId;
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === entry.entryId) {
+        const $li = document.querySelectorAll('li');
+        $li[i].replaceWith(renderEntry(entry));
         data.entries[i] = entry;
+        $newH1.textContent = 'New Entry';
+        data.editing = null;
       }
     }
   }
-
   viewSwap('entries');
   toggleNoEntries();
   $form.reset();
@@ -129,12 +132,12 @@ $newButton.addEventListener('click', function (event) {
 
 const $inputTitle = document.querySelector('#title');
 const $textArea = document.querySelector('#notes');
+const $newH1 = document.querySelector('.new-h1');
 
 $ul.addEventListener('click', function (event) {
   if (event.target.tagName === 'I') {
     const closestLi = event.target.closest('li').getAttribute('data-entry-id');
     viewSwap('entry-form');
-    const $newH1 = document.querySelector('.new-h1');
     $newH1.textContent = 'Edit Entry';
 
     for (let i = 0; i < data.entries.length; i++) {
