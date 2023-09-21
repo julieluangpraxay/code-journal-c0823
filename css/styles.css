@@ -40,8 +40,9 @@ body {
 
 .button-row {
   display: flex;
-  justify-content: flex-end;
   margin-bottom: 3rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 textarea {
@@ -121,4 +122,16 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.delete {
+  color: red;
+  text-decoration: underline;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 0;
+}
+
+.visibility-hidden {
+  visibility: hidden;
 }
