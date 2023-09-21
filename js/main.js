@@ -23,26 +23,15 @@ $form.addEventListener('submit', function (event) {
     data.nextEntryId++;
     data.entries.unshift(entry);
     $ul.prepend(renderEntry(entry));
-
     $image.setAttribute('src', './images/placeholder-image-square.jpg');
   } else {
     entry.entryId = data.editing.entryId;
     for (let i = 0; i < data.entries.length; i++) {
-      if (data.entries[i].entryId === entry.entryId) data.entries[i] = entry;
+      if (data.entries[i].entryId === entry.entryId) {
+        data.entries[i] = entry;
+      }
     }
   }
-
-  const $li = document.querySelector('li');
-  for (let i = 0; i < $li.length; i++) {
-    if (entry.entryId === Number($li[i].getAttribute('data-entry-id'))) {
-      $image.src = './images/placeholder-image-square.jpg';
-      $li[i].replaceWith(renderEntry(entry));
-    }
-  }
-  const $title = document.createElement('h2');
-
-  $title.textContent = 'New Entry';
-  data.editing = null;
 
   viewSwap('entries');
   toggleNoEntries();
@@ -135,6 +124,7 @@ $newButton.addEventListener('click', function (event) {
   const $newH1 = document.querySelector('.new-h1');
   $newH1.textContent = 'New Entry';
   viewSwap('entry-form');
+  $image.src = './images/placeholder-image-square.jpg';
 });
 
 const $inputTitle = document.querySelector('#title');
