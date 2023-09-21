@@ -173,3 +173,20 @@ $cancelButton.addEventListener('click', function () {
   $popup.classList.add('hidden');
   $grayBackground.classList.add('hidden');
 });
+
+const $confirmButton = document.querySelector('.confirm-button');
+
+$confirmButton.addEventListener('click', function (event) {
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.entries[i] === data.editing) {
+      data.entries.splice(data.entries[i], 1);
+      const $li = document.querySelectorAll('li');
+      $li[i].remove(data.entries[i]);
+      $popup.classList.add('hidden');
+      $grayBackground.classList.add('hidden');
+    }
+  }
+  viewSwap('entries');
+  data.editing = null;
+  $form.reset();
+});
