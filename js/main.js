@@ -127,17 +127,21 @@ $newButton.addEventListener('click', function (event) {
   $newH1.textContent = 'New Entry';
   viewSwap('entry-form');
   $image.src = './images/placeholder-image-square.jpg';
+  $delete.classList.add('visibility-hidden');
 });
 
 const $inputTitle = document.querySelector('#title');
 const $textArea = document.querySelector('#notes');
 const $newH1 = document.querySelector('.new-h1');
+const $delete = document.querySelector('.delete');
 
 $ul.addEventListener('click', function (event) {
   if (event.target.tagName === 'I') {
     const closestLi = event.target.closest('li').getAttribute('data-entry-id');
     viewSwap('entry-form');
     $newH1.textContent = 'Edit Entry';
+
+    $delete.classList.remove('visibility-hidden');
 
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === Number(closestLi)) {
@@ -152,4 +156,36 @@ $ul.addEventListener('click', function (event) {
       }
     }
   }
+});
+
+const $popup = document.querySelector('.popup-container');
+const $grayBackground = document.querySelector('.gray-background');
+
+$delete.addEventListener('click', function (event) {
+  $popup.classList.remove('hidden');
+  $grayBackground.classList.remove('hidden');
+});
+
+const $cancelButton = document.querySelector('.cancel-button');
+
+$cancelButton.addEventListener('click', function () {
+  $popup.classList.add('hidden');
+  $grayBackground.classList.add('hidden');
+});
+
+const $confirmButton = document.querySelector('.confirm-button');
+
+$confirmButton.addEventListener('click', function (event) {
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.entries[i] === data.editing) {
+      data.entries.splice(data.entries[i], 1);
+      const $li = document.querySelectorAll('li');
+      $li[i].remove(data.entries[i]);
+      $popup.classList.add('hidden');
+      $grayBackground.classList.add('hidden');
+    }
+  }
+  viewSwap('entries');
+  data.editing = null;
+  $form.reset();
 });
