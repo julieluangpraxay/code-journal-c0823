@@ -162,7 +162,6 @@ const $popup = document.querySelector('.popup-container');
 const $grayBackground = document.querySelector('.gray-background');
 
 $delete.addEventListener('click', function (event) {
-  event.preventDefault();
   $popup.classList.remove('hidden');
   $grayBackground.classList.remove('hidden');
 });
